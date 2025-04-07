@@ -26,7 +26,7 @@ public class JsonReader {
                 String subAnswer = idk[i].substring(indexCorrect+17, indexIncorrect-22); //prints the correct answer
                 String subInAns = idk[i].substring(indexIncorrect+2, idk[i].length()-1);
                 
-
+                //test
 
                 System.out.println(subQuestions);
                 System.out.println(subAnswer);
