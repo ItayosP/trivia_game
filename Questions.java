@@ -8,13 +8,10 @@ import java.net.http.HttpResponse;
 public class Questions {
     public static void properties(int num, int category, String difficulty) throws IOException, InterruptedException {
 
-
-        // ("https://opentdb.com/api.php?amount="+num+10+"&category="+category+"&difficulty="+difficulty)
-
-
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("https://opentdb.com/api.php?amount=10&category=20&difficulty=hard&type=multiple"))
+        
+            .uri(URI.create("https://opentdb.com/api.php?amount="+(Math.max(10, num))+"&category="+(category==0?0:category+8)+"&difficulty="+difficulty+"&type=multiple"))
             .GET()
             .build();
 
@@ -26,36 +23,35 @@ public class Questions {
     }
 
     public static void listCategories() throws IOException, InterruptedException {
-
         System.out.println("""
-                           1. Any Category\r
-                           2. General Knowledge\r
-                           3. Entertainment: Books\r
-                           4. Entertainment: Film\r
-                           5. Entertainment: Music\r
-                           6. Entertainment: Musicals & Theatres\r
-                           7. Entertainment: Television\r
-                           8. Entertainment: Video Games\r
-                           9. Entertainment: Board Games\r
-                           10. Entertainment: Comics\r
-                           11. Entertainment: Japanese Anime & Manga\r
-                           12. Entertainment: Cartoon & Animations\r
-                           13. Science & Nature\r
-                           14. Science: Computers\r
-                           15. Science: Mathematics\r
-                           16. Mythology\r
-                           17. Sports\r
-                           18. Geography\r
-                           19. History\r
-                           20. Politics\r
-                           21. Art\r
-                           22. Celebrities\r
-                           23. Animals\r
-                           24. Vehicles\r
-                           25. Science: Gadgets\r
-                           """
-        );
+                           0. Any Category
+                           1. General Knowledge
+                           2. Entertainment: Books
+                           3. Entertainment: Film
+                           4. Entertainment: Music
+                           5. Entertainment: Musicals & Theatres
+                           6. Entertainment: Television
+                           7. Entertainment: Video Games
+                           8. Entertainment: Board Games
+                           9. Science & Nature
+                           10. Science: Computers
+                           11. Science: Mathematics
+                           12. Mythology
+                           13. Sports
+                           14. Geography
+                           15. History
+                           16. Politics
+                           17. Art
+                           18. Celebrities
+                           19. Animals
+                           20. Vehicles
+                           21. Entertainment: Comics
+                           22. Science: Gadgets
+                           23. Entertainment: Japanese Anime & Manga
+                           24. Entertainment: Cartoon & Animations
+                           """);
     }
+    
 
 //     public static void showCategories() throws IOException, InterruptedException {
 //         HttpClient client = HttpClient.newHttpClient();

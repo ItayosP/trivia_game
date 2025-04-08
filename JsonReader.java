@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class JsonReader {
         public static void readJson(String file_path) {
@@ -15,7 +16,9 @@ public class JsonReader {
             idk[0] = idk[0].substring(30); //first
             idk[idk.length-1] = idk[idk.length-1].substring(0, idk[idk.length-1].length()-3); //last
 
+            Scanner s = new Scanner(System.in);
             Random r = new Random();
+            int score=0;
 
 
             for (int i=0; i<idk.length; i++) {
@@ -51,11 +54,24 @@ public class JsonReader {
                 }
 
 
+
+
                 System.out.println(subQuestions);
-                System.out.println(subAnswer);
+
                 System.out.println(Arrays.toString(arr2));
 
+                System.out.println("Enter Answer: ");
+                int inputAns = s.nextInt()-1;
+
+                if (arr2[inputAns] == subAnswer) {
+                    System.out.println("Correct");
+                    score++;
+                } else {
+                    System.out.println("Incorrect, The correct answer was: "+subAnswer);
+                }
             }
+
+            System.out.println("Your score is: "+score+", Out of: "+Main.num);
 
         } catch (IOException e) {
             e.printStackTrace();
