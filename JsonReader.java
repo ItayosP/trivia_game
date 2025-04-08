@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Random;
 
 public class JsonReader {
         public static void readJson(String file_path) {
@@ -13,6 +14,8 @@ public class JsonReader {
 
             idk[0] = idk[0].substring(30); //first
             idk[idk.length-1] = idk[idk.length-1].substring(0, idk[idk.length-1].length()-3); //last
+
+            Random r = new Random();
 
 
             for (int i=0; i<idk.length; i++) {
@@ -32,20 +35,25 @@ public class JsonReader {
                 for (int j=0; j<arr.length; j++) {
                     arr2[j] = arr[j];
                 }
+
                 arr2[3] = subAnswer;
+
+                String correctAns = subAnswer;
                 
+                
+
+                
+                for (int k=0; k<arr2.length; k++) {
+                    int rand = r.nextInt(arr2.length);
+                    String temp = arr2[rand];
+                    arr2[rand] = arr2[k];
+                    arr2[k] = temp;
+                }
 
 
                 System.out.println(subQuestions);
                 System.out.println(subAnswer);
-                // System.out.println(subIncAns.replaceAll("\"", ""));
                 System.out.println(Arrays.toString(arr2));
-
-
-                // System.out.println(idk[i].substring(indexQuestion));
-                // System.out.println(idk[i].substring(indexCorrect));
-                // System.out.println(idk[i].substring(indexIncorrect));
-                
 
             }
 

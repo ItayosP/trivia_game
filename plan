@@ -1,4 +1,4 @@
 JsonReader:
-    Seperate hthe correctAnswer and IncorectAnswers
-    put them in array
-    shuffle the array
+    Seperate hthe correctAnswer and IncorectAnswers - Done
+    put them in array - Done
+    shuffle the array - Done
